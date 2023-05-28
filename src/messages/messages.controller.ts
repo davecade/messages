@@ -10,13 +10,8 @@ interface Repository {
 
 @Controller('messages')
 export class MessagesController {
-    messagesService: MessagesService
 
-    constructor() {
-        // The Controller is creating its own dependencies
-        // DONT DO THIS ON REAL APPS
-        this.messagesService = new MessagesService()
-    }
+    constructor(public messagesService: MessagesService) { }
 
     @Get()
     listMessages() {
